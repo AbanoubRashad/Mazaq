@@ -1,0 +1,28 @@
+{
+  "name": "mazaq",
+  "private": true,
+  "description": "Mazaq (مذاق) specialty coffee — website + mobile app monorepo",
+  "packageManager": "pnpm@10.34.6",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "turbo run dev --filter=web",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "test:e2e": "pnpm --filter web test:e2e",
+    "format": "prettier --write .",
+    "images:fetch": "node scripts/fetch-images.mjs",
+    "build:static": "node scripts/build-static.mjs",
+    "deploy:web": "pnpm build:static && firebase deploy --only hosting"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "prettier": "^3.6.2",
+    "vitest": "^4.0.2",
+    "turbo": "^2.11.5",
+    "typescript": "~5.9.3"
+  }
+}
