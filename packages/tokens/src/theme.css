@@ -1,0 +1,46 @@
+/* Mazaq design tokens as a Tailwind v4 theme. Generated from src/index.ts — keep in sync. */
+@theme {
+  --color-teal-900: #0a2c28;
+  --color-teal-800: #0e3b36;
+  --color-teal-600: #1a5048;
+  --color-saffron-500: #e3a62b;
+  --color-ground: #f0f2ee;
+  --color-paper: #ffffff;
+  --color-ink: #16201e;
+  --color-muted: #55625f;
+  --color-line: #d5dbd6;
+  --color-sage-100: #e1e9dc;
+  --color-brown-600: #8a5a2b;
+  --color-line-strong: #c3ccc6;
+  --color-on-teal: #f0f2ee;
+  --color-on-teal-muted: #c5d5d0;
+  --color-teal-rule: #2a5b53;
+  --color-teal-outline: #5c827b;
+  --color-utility-text: #d6e2de;
+  --color-sage-600: #3f5f4a;
+  --color-sage-outline: #9fb29a;
+  --color-sand: #e7e1d6;
+
+  --font-display: var(--font-bricolage), 'Bricolage Grotesque', system-ui, sans-serif;
+  --font-sans: var(--font-figtree), Figtree, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), 'IBM Plex Mono', ui-monospace, monospace;
+  --font-arabic: var(--font-plex-arabic), 'IBM Plex Sans Arabic', system-ui, sans-serif;
+  --font-arabic-display: var(--font-reem-kufi), 'Reem Kufi', system-ui, sans-serif;
+
+  --text-d1: 84px;
+  --text-d2: 56px;
+  --text-d3: 48px;
+  --text-d4: 34px;
+  --text-h1: 24px;
+  --text-h2: 22px;
+  --text-lead: 19px;
+  --text-body-lg: 17px;
+  --text-body: 15px;
+  --text-sm: 13px;
+  --text-xs: 12px;
+
+  --radius-input: 12px;
+  --radius-card-sm: 14px;
+  --radius-card: 18px;
+  --radius-card-lg: 20px;
+}
