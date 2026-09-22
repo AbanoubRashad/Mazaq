@@ -1,0 +1,30 @@
+node_modules
+.next
+out
+.firebase
+.turbo
+dist
+.expo
+coverage
+playwright-report
+test-results
+*.log
+.env*.local
+apps/mobile/dist-*
+apps/mobile/ios
+apps/mobile/android
+
+# secrets and local build info
+.env
+.env.*
+!.env.example
+*.tsbuildinfo
+
+# large design export and AI prompt (not source code)
+Mazaq Web & App.html
+Mazaq-Claude-Code-Prompt.md
+
+# local helper scripts and AI-agent files
+*.bat
+AGENTS.md
+CLAUDE.md
