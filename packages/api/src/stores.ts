@@ -1,0 +1,237 @@
+import type { OpeningHours, Store } from './types';
+
+/*
+ * PLACEHOLDER store list — addresses, coordinates, phones and hours are
+ * illustrative until the client supplies the confirmed store register.
+ */
+
+const daily = (open: string, close: string): OpeningHours[] => [
+  { days: { en: 'Every day', ar: 'يوميًا' }, open, close },
+];
+const split = (weekOpen: string, weekClose: string, wkndOpen: string, wkndClose: string, weekend: 'fri-sat' | 'sat-sun'): OpeningHours[] => [
+  weekend === 'fri-sat'
+    ? { days: { en: 'Sun–Thu', ar: 'الأحد–الخميس' }, open: weekOpen, close: weekClose }
+    : { days: { en: 'Mon–Fri', ar: 'الاثنين–الجمعة' }, open: weekOpen, close: weekClose },
+  weekend === 'fri-sat'
+    ? { days: { en: 'Fri–Sat', ar: 'الجمعة–السبت' }, open: wkndOpen, close: wkndClose }
+    : { days: { en: 'Sat–Sun', ar: 'السبت–الأحد' }, open: wkndOpen, close: wkndClose },
+];
+
+const cairo = { en: 'Cairo', ar: 'القاهرة' };
+const alex = { en: 'Alexandria', ar: 'الإسكندرية' };
+const dubai = { en: 'Dubai', ar: 'دبي' };
+const riyadh = { en: 'Riyadh', ar: 'الرياض' };
+const amman = { en: 'Amman', ar: 'عمّان' };
+const london = { en: 'London', ar: 'لندن' };
+
+export const stores: Store[] = [
+  {
+    id: 'cai-zamalek',
+    market: 'EG',
+    cityKey: 'cairo',
+    city: cairo,
+    name: { en: 'Mazaq Zamalek', ar: 'مذاق الزمالك' },
+    address: { en: '26th of July St, Zamalek', ar: 'شارع ٢٦ يوليو، الزمالك' },
+    lat: 30.0609,
+    lng: 31.2197,
+    phone: '+20 2 2735 0000',
+    hours: daily('07:00', '00:00'),
+    services: ['delivery', 'outdoor-seating', 'wifi'],
+    placeholder: true,
+  },
+  {
+    id: 'cai-new-cairo',
+    market: 'EG',
+    cityKey: 'cairo',
+    city: cairo,
+    name: { en: 'Mazaq New Cairo', ar: 'مذاق القاهرة الجديدة' },
+    address: { en: '90th St, Fifth Settlement', ar: 'شارع التسعين، التجمع الخامس' },
+    lat: 30.0266,
+    lng: 31.4913,
+    phone: '+20 2 2811 0000',
+    hours: daily('06:30', '01:00'),
+    services: ['drive-thru', 'delivery', 'outdoor-seating', 'wifi'],
+    placeholder: true,
+  },
+  {
+    id: 'cai-maadi',
+    market: 'EG',
+    cityKey: 'cairo',
+    city: cairo,
+    name: { en: 'Mazaq Maadi', ar: 'مذاق المعادي' },
+    address: { en: 'Road 9, Maadi', ar: 'شارع ٩، المعادي' },
+    lat: 29.9602,
+    lng: 31.2569,
+    phone: '+20 2 2358 0000',
+    hours: daily('07:00', '23:30'),
+    services: ['delivery', 'outdoor-seating'],
+    placeholder: true,
+  },
+  {
+    id: 'cai-roastery',
+    market: 'EG',
+    cityKey: 'cairo',
+    city: cairo,
+    name: { en: 'Mazaq Roastery, 6th of October', ar: 'محمصة مذاق، ٦ أكتوبر' },
+    address: { en: 'Industrial Zone 3, 6th of October City', ar: 'المنطقة الصناعية ٣، مدينة ٦ أكتوبر' },
+    lat: 29.9285,
+    lng: 30.9188,
+    phone: '+20 2 3830 0000',
+    hours: split('08:00', '18:00', '09:00', '15:00', 'fri-sat'),
+    services: ['roastery', 'drive-thru'],
+    placeholder: true,
+  },
+  {
+    id: 'alx-stanley',
+    market: 'EG',
+    cityKey: 'alexandria',
+    city: alex,
+    name: { en: 'Mazaq Stanley', ar: 'مذاق ستانلي' },
+    address: { en: 'Corniche, Stanley', ar: 'الكورنيش، ستانلي' },
+    lat: 31.2355,
+    lng: 29.9483,
+    phone: '+20 3 5460 000',
+    hours: daily('07:00', '01:00'),
+    services: ['delivery', 'outdoor-seating', 'wifi'],
+    placeholder: true,
+  },
+  {
+    id: 'alx-smouha',
+    market: 'EG',
+    cityKey: 'alexandria',
+    city: alex,
+    name: { en: 'Mazaq Smouha', ar: 'مذاق سموحة' },
+    address: { en: 'Victor Emmanuel Sq, Smouha', ar: 'ميدان فيكتور عمانويل، سموحة' },
+    lat: 31.2156,
+    lng: 29.9553,
+    phone: '+20 3 4240 000',
+    hours: daily('07:00', '00:00'),
+    services: ['drive-thru', 'delivery'],
+    placeholder: true,
+  },
+  {
+    id: 'dxb-alserkal',
+    market: 'AE',
+    cityKey: 'dubai',
+    city: dubai,
+    name: { en: 'Mazaq Alserkal Avenue', ar: 'مذاق السركال أفنيو' },
+    address: { en: 'Alserkal Avenue, Al Quoz 1', ar: 'السركال أفنيو، القوز ١' },
+    lat: 25.1452,
+    lng: 55.2272,
+    phone: '+971 4 000 0000',
+    hours: daily('07:30', '22:00'),
+    services: ['outdoor-seating', 'wifi'],
+    placeholder: true,
+  },
+  {
+    id: 'dxb-jlt',
+    market: 'AE',
+    cityKey: 'dubai',
+    city: dubai,
+    name: { en: 'Mazaq JLT', ar: 'مذاق أبراج بحيرات جميرا' },
+    address: { en: 'Cluster D, Jumeirah Lake Towers', ar: 'المجمع D، أبراج بحيرات جميرا' },
+    lat: 25.0693,
+    lng: 55.1413,
+    phone: '+971 4 000 0001',
+    hours: daily('06:30', '23:00'),
+    services: ['delivery', 'drive-thru'],
+    placeholder: true,
+  },
+  {
+    id: 'ruh-bujairi',
+    market: 'SA',
+    cityKey: 'riyadh',
+    city: riyadh,
+    name: { en: 'Mazaq Bujairi Terrace', ar: 'مذاق مطل البجيري' },
+    address: { en: 'Bujairi Terrace, Diriyah', ar: 'مطل البجيري، الدرعية' },
+    lat: 24.7336,
+    lng: 46.5758,
+    phone: '+966 11 000 0000',
+    hours: daily('08:00', '01:00'),
+    services: ['outdoor-seating', 'wifi'],
+    placeholder: true,
+  },
+  {
+    id: 'ruh-olaya',
+    market: 'SA',
+    cityKey: 'riyadh',
+    city: riyadh,
+    name: { en: 'Mazaq Olaya', ar: 'مذاق العليا' },
+    address: { en: 'Olaya St, Al Olaya', ar: 'شارع العليا، حي العليا' },
+    lat: 24.6949,
+    lng: 46.6853,
+    phone: '+966 11 000 0001',
+    hours: daily('06:00', '02:00'),
+    services: ['drive-thru', 'delivery'],
+    placeholder: true,
+  },
+  {
+    id: 'amm-weibdeh',
+    market: 'JO',
+    cityKey: 'amman',
+    city: amman,
+    name: { en: 'Mazaq Jabal Al-Weibdeh', ar: 'مذاق جبل اللويبدة' },
+    address: { en: 'Paris Square, Jabal Al-Weibdeh', ar: 'دوار باريس، جبل اللويبدة' },
+    lat: 31.9594,
+    lng: 35.9154,
+    phone: '+962 6 000 0000',
+    hours: daily('07:30', '23:30'),
+    services: ['outdoor-seating', 'wifi'],
+    placeholder: true,
+  },
+  {
+    id: 'amm-abdoun',
+    market: 'JO',
+    cityKey: 'amman',
+    city: amman,
+    name: { en: 'Mazaq Abdoun', ar: 'مذاق عبدون' },
+    address: { en: 'Cairo St, Abdoun', ar: 'شارع القاهرة، عبدون' },
+    lat: 31.9434,
+    lng: 35.8858,
+    phone: '+962 6 000 0001',
+    hours: daily('07:00', '00:00'),
+    services: ['drive-thru', 'delivery'],
+    placeholder: true,
+  },
+  {
+    id: 'lon-shoreditch',
+    market: 'GB',
+    cityKey: 'london',
+    city: london,
+    name: { en: 'Mazaq Shoreditch', ar: 'مذاق شورديتش' },
+    address: { en: 'Shoreditch High St, E1', ar: 'شارع شورديتش الرئيسي، E1' },
+    lat: 51.5246,
+    lng: -0.0776,
+    phone: '+44 20 0000 0000',
+    hours: split('07:00', '19:00', '08:00', '18:00', 'sat-sun'),
+    services: ['delivery', 'wifi'],
+    placeholder: true,
+  },
+  {
+    id: 'lon-marylebone',
+    market: 'GB',
+    cityKey: 'london',
+    city: london,
+    name: { en: 'Mazaq Marylebone', ar: 'مذاق ماريلبون' },
+    address: { en: 'Marylebone High St, W1', ar: 'شارع ماريلبون الرئيسي، W1' },
+    lat: 51.5202,
+    lng: -0.1513,
+    phone: '+44 20 0000 0001',
+    hours: split('07:00', '19:00', '08:00', '18:00', 'sat-sun'),
+    services: ['outdoor-seating', 'wifi'],
+    placeholder: true,
+  },
+];
+
+export const cities = [
+  { key: 'cairo', country: { en: 'EGYPT', ar: 'مصر' }, city: cairo, spot: { en: 'Zamalek, 26th of July St', ar: 'الزمالك، شارع ٢٦ يوليو' } },
+  { key: 'alexandria', country: { en: 'EGYPT', ar: 'مصر' }, city: alex, spot: { en: 'Stanley, Corniche', ar: 'ستانلي، الكورنيش' } },
+  { key: 'dubai', country: { en: 'UAE', ar: 'الإمارات' }, city: dubai, spot: { en: 'Alserkal Avenue', ar: 'السركال أفنيو' } },
+  { key: 'riyadh', country: { en: 'SAUDI ARABIA', ar: 'السعودية' }, city: riyadh, spot: { en: 'Diriyah, Bujairi Terrace', ar: 'الدرعية، مطل البجيري' } },
+  { key: 'london', country: { en: 'UNITED KINGDOM', ar: 'المملكة المتحدة' }, city: london, spot: { en: 'Shoreditch High St', ar: 'شارع شورديتش' } },
+  { key: 'amman', country: { en: 'JORDAN', ar: 'الأردن' }, city: amman, spot: { en: 'Jabal Al-Weibdeh', ar: 'جبل اللويبدة' } },
+] as const;
+
+export function directionsUrl(store: Pick<Store, 'lat' | 'lng'>): string {
+  return `https://www.google.com/maps/dir/?api=1&destination=${store.lat},${store.lng}`;
+}
