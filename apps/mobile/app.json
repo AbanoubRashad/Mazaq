@@ -1,0 +1,27 @@
+{
+  "expo": {
+    "name": "Mazaq",
+    "slug": "mazaq",
+    "scheme": "mazaq",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "backgroundColor": "#F0F2EE",
+    "ios": {
+      "bundleIdentifier": "coffee.mazaq.app",
+      "supportsTablet": false,
+      "infoPlist": { "CFBundleLocalizations": ["en", "ar"] }
+    },
+    "android": {
+      "package": "coffee.mazaq.app",
+      "adaptiveIcon": { "backgroundColor": "#0E3B36" }
+    },
+    "extra": { "supportsRTL": true },
+    "plugins": [
+      "expo-router",
+      "expo-localization",
+      "expo-font",
+      ["expo-splash-screen", { "backgroundColor": "#0E3B36" }]
+    ]
+  }
+}
